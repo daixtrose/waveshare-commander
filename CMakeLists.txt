@@ -20,7 +20,7 @@ if(NOT TARGET waveshare)
     FetchContent_Declare(
         libwaveshare_proj
         GIT_REPOSITORY https://github.com/daixtrose/waveshare-lib.git
-        GIT_TAG v0.2.1
+        GIT_TAG v0.2.2
         GIT_SHALLOW TRUE
     )
     FetchContent_MakeAvailable(libwaveshare_proj)
@@ -81,11 +81,7 @@ if(MINGW)
     target_link_options(waveshare_commander PRIVATE -static)
 endif()
 
-# Statically link C++ runtime for cross-compiled aarch64 binaries.
-# The Bookworm sysroot provides glibc 2.36, but libstdc++ is from GCC 14.
-# Bookworm only ships GCC 12 libstdc++, so we must link it statically.
-if(CMAKE_CROSSCOMPILING AND CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")
-    target_link_options(waveshare_commander PRIVATE -static-libstdc++ -static-libgcc)
-endif()
+# Trixie ships GCC 14 libstdc++, so no static-libstdc++ kludge needed
+# any more — the deb declares libstdc++6 as a runtime Depends:.
 
 include(${CMAKE_CURRENT_LIST_DIR}/CMakeListsCPackConfiguration.txt)
