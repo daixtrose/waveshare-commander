@@ -61,7 +61,7 @@ jobs:
         if: ${{ !vars.IS_SCM == 'true' }}
         uses: actions/upload-artifact@v4
         with:
-          name: waveshare-modbus-commander-linux-x86_64
+          name: waveshare-commander-linux-x86_64
           path: artifacts/
 
   build-linux-aarch64:
@@ -125,7 +125,7 @@ jobs:
         if: ${{ !vars.IS_SCM == 'true' }}
         uses: actions/upload-artifact@v4
         with:
-          name: waveshare-modbus-commander-linux-aarch64
+          name: waveshare-commander-linux-aarch64
           path: artifacts/
 
   build-windows-x86_64:
@@ -184,5 +184,5 @@ jobs:
         if: ${{ !vars.IS_SCM == 'true' }}
         uses: actions/upload-artifact@v4
         with:
-          name: waveshare-modbus-commander-windows-x86_64
+          name: waveshare-commander-windows-x86_64
           path: artifacts/

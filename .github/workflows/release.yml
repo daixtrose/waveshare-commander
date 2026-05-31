@@ -55,7 +55,7 @@ jobs:
         if: ${{ vars.PUBLISH_HOST == '' }}
         uses: actions/upload-artifact@v4
         with:
-          name: waveshare-modbus-commander-linux-x86_64
+          name: waveshare-commander-linux-x86_64
           path: artifacts/
 
   build-linux-aarch64:
@@ -118,7 +118,7 @@ jobs:
         if: ${{ vars.PUBLISH_HOST == '' }}
         uses: actions/upload-artifact@v4
         with:
-          name: waveshare-modbus-commander-linux-aarch64
+          name: waveshare-commander-linux-aarch64
           path: artifacts/
 
       # ── Forgejo path: publish arm64 deb from this job ────────────
@@ -252,7 +252,7 @@ jobs:
         if: ${{ vars.PUBLISH_HOST == '' }}
         uses: actions/upload-artifact@v4
         with:
-          name: waveshare-modbus-commander-windows-x86_64
+          name: waveshare-commander-windows-x86_64
           path: artifacts/
 
   publish:
@@ -268,19 +268,19 @@ jobs:
       - name: Download Linux x86_64 artifacts
         uses: actions/download-artifact@v4
         with:
-          name: waveshare-modbus-commander-linux-x86_64
+          name: waveshare-commander-linux-x86_64
           path: artifacts
 
       - name: Download Linux aarch64 artifacts
         uses: actions/download-artifact@v4
         with:
-          name: waveshare-modbus-commander-linux-aarch64
+          name: waveshare-commander-linux-aarch64
           path: artifacts
 
       - name: Download Windows x86_64 artifacts
         uses: actions/download-artifact@v4
         with:
-          name: waveshare-modbus-commander-windows-x86_64
+          name: waveshare-commander-windows-x86_64
           path: artifacts
 
       # See cpp-java-package-distribution-proposal.md §4.3 / §5.5.
