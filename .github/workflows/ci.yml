@@ -58,7 +58,7 @@ jobs:
           readelf -d /tmp/deb-extract/opt/daixtrose/*/bin/* | grep -i -E 'runpath|rpath'
 
       - name: Upload artifacts
-        if: ${{ !vars.IS_SCM == 'true' }}
+        if: ${{ vars.PUBLISH_HOST == '' }}
         uses: actions/upload-artifact@v4
         with:
           name: waveshare-commander-linux-x86_64
@@ -122,7 +122,7 @@ jobs:
           [ "$fail" -eq 0 ] || exit 1
 
       - name: Upload artifacts
-        if: ${{ !vars.IS_SCM == 'true' }}
+        if: ${{ vars.PUBLISH_HOST == '' }}
         uses: actions/upload-artifact@v4
         with:
           name: waveshare-commander-linux-aarch64
@@ -181,7 +181,7 @@ jobs:
           ls -la artifacts/
 
       - name: Upload artifacts
-        if: ${{ !vars.IS_SCM == 'true' }}
+        if: ${{ vars.PUBLISH_HOST == '' }}
         uses: actions/upload-artifact@v4
         with:
           name: waveshare-commander-windows-x86_64
